@@ -50,4 +50,13 @@ upButton.addEventListener("click", function(){
     activeImg[imgCounter].classList.add('active');
 });
 
+downButton.addEventListener("click", function(){
+    activeImg[imgCounter].classList.remove("active");
+    imgCounter--;
+    if(imgCounter < 0) {
+        imgCounter = activeImg.length - 1
+    }
+    activeImg[imgCounter].classList.add('active');
+})
+
 
