@@ -27,19 +27,27 @@ const images = [
 ];
 
 const carousel = document.getElementById("carousel");
+let activeImg = [];
 for (let i = 0; i < images.length; i++) {
     let createElementDiv = document.createElement("div");
     createElementDiv.innerHTML = `<img src="./${images[i].image}" alt="${images[i].title} image">`;
     createElementDiv.classList.add('my_carousel-item');
     carousel.appendChild(createElementDiv);
+    activeImg.push(createElementDiv);
 }
-
+activeImg[0].classList.add("active");
+let imgCounter = 0;
 
 const upButton = document.querySelector(".button.previous");
 const downButton = document.querySelector(".button.next");
 
 upButton.addEventListener("click", function(){
-    
+    activeImg[imgCounter].classList.remove("active");
+    imgCounter++;
+    if (imgCounter >= activeImg.length) {
+        imgCounter = 0;
+    }
+    activeImg[imgCounter].classList.add('active');
 });
 
 
