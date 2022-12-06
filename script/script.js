@@ -26,13 +26,20 @@ const images = [
     }
 ];
 
-let createCarouselImg = document.getElementById("carousel");
-
-
+const carousel = document.getElementById("carousel");
 for (let i = 0; i < images.length; i++) {
-    createCarouselImg.innerHTML += 
-    `
-    <div class="my_carousel-item">
-        <img src="./${images[i].image}" alt="First image">
-    </div> `;
+    let createElementDiv = document.createElement("div");
+    createElementDiv.innerHTML = `<img src="./${images[i].image}" alt="${images[i].title} image">`;
+    createElementDiv.classList.add('my_carousel-item');
+    carousel.appendChild(createElementDiv);
 }
+
+
+const upButton = document.querySelector(".button.previous");
+const downButton = document.querySelector(".button.next");
+
+upButton.addEventListener("click", function(){
+    
+});
+
+
